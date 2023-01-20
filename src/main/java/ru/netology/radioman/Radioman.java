@@ -2,24 +2,36 @@ package ru.netology.radioman;
 public class Radioman {
     private int currentVolume;
     private int numberStation;
+    private int maxNumber;
+    private int countOfStation;
+    private int maxVolume = 100;
+
+    public Radioman() {
+        maxNumber = 9;
+    }
+    public Radioman(int countOfStation) {
+        maxNumber = countOfStation - 1;
+        this.countOfStation = countOfStation;
+    }
+
 
     public int getNumberStation() {
         return numberStation;
     }
 
     public void setStation(int newNumberStation) {
-        if (newNumberStation > 9) {
+        if (newNumberStation > maxNumber) {
             return;
         }
         if (newNumberStation < 0) {
             return;
         }
-        numberStation = newNumberStation;
+        this.numberStation = newNumberStation;
     }
 
     public int next() {
 
-        if (numberStation != 9) {
+        if (numberStation != maxNumber) {
             numberStation++;
         } else {
             numberStation = 0;
@@ -31,7 +43,7 @@ public class Radioman {
         if (numberStation != 0) {
             numberStation--;
         } else {
-            numberStation = 9;
+            numberStation = maxNumber;
         }
         return numberStation;
     }
@@ -41,7 +53,7 @@ public class Radioman {
     }
 
     public void setVolume(int newCurrentVolume) {
-        if (newCurrentVolume > 10 ) {
+        if (newCurrentVolume > maxVolume ) {
             return;
         }
         if (newCurrentVolume < 0) {
@@ -51,8 +63,8 @@ public class Radioman {
     }
 
     public void increaseVolume() {
-        if (currentVolume >= 10) {
-            currentVolume = 10;
+        if (currentVolume >= maxVolume) {
+            currentVolume = maxVolume;
         } else {
             currentVolume = currentVolume + 1;
         }
