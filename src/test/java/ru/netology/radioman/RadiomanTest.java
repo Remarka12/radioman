@@ -8,15 +8,27 @@ public class RadiomanTest {
     public void souldSetStation() {
 
         Radioman radio = new Radioman();
-        radio.setStation(10);
+        radio.setStation(8);
 
-        int expected = 0;
+        int expected = 8;
         int actual = radio.getNumberStation();
 
         Assertions.assertEquals(expected, actual);
 
     }
 
+    @Test
+
+    public void souldSetStation2() {
+
+        Radioman radio = new Radioman(20);
+        radio.setStation(25);
+
+        int expected = 0;
+        int actual = radio.getNumberStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
     @Test
 
     public void shouldNotSetUncorrectStation() {
@@ -85,9 +97,9 @@ public class RadiomanTest {
     public void shouldSetVolume() {
 
         Radioman radio = new Radioman();
-        radio.setVolume(10);
+        radio.setVolume(100);
 
-        int expected = 10;
+        int expected = 100;
         int actual = radio.getCurrentVolume();
         Assertions.assertEquals(expected, actual);
     }
@@ -96,7 +108,7 @@ public class RadiomanTest {
     public void shouldNotSetUncorrectVolume(){
 
         Radioman radio = new Radioman();
-        radio.setVolume(11);
+        radio.setVolume(101);
 
         int expected = 0;
         int actual = radio.getCurrentVolume();
@@ -108,11 +120,11 @@ public class RadiomanTest {
     public void shouldAddVolume() {
 
         Radioman radio = new Radioman();
-        radio.setVolume(9);
+        radio.setVolume(99);
         radio.increaseVolume();
 
 
-        int expected = 10;
+        int expected = 100;
         int actual = radio.getCurrentVolume();
         Assertions.assertEquals(expected, actual);
     }
@@ -122,10 +134,10 @@ public class RadiomanTest {
     public void shouldStopAddVolume() {
 
         Radioman radio = new Radioman();
-        radio.setVolume(10);
+        radio.setVolume(100);
         radio.increaseVolume();
 
-        int expected = 10;
+        int expected = 100;
         int actual = radio.getCurrentVolume();
         Assertions.assertEquals(expected, actual);
     }
@@ -134,11 +146,11 @@ public class RadiomanTest {
     public void shouldDownVolume() {
 
         Radioman radio = new Radioman();
-        radio.setVolume(5);
+        radio.setVolume(50);
 
         radio.downVolume();
 
-        int expected = 4;
+        int expected = 49;
         int actual = radio.getCurrentVolume();
         Assertions.assertEquals(expected, actual);
     }
